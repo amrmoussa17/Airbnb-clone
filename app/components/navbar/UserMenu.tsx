@@ -1,13 +1,16 @@
+"use client"
 import React, { useState } from "react"
 import { AiOutlineMenu } from "react-icons/ai"
 import Avatar from "./Avatar"
 import MenuItem from "./MenuItem"
+import useRegisterModal from "@/app/hooks/useRegisterModal"
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleOpen = () => {
     setIsOpen((prev) => !prev)
   }
+  const registerModal = useRegisterModal()
   return (
     <div className="relative">
       <div className="flex items-center gap-3 ">
@@ -68,7 +71,7 @@ const UserMenu = () => {
         >
           <div className="flex flex-col cursor-pointer">
             <MenuItem label="Login" onClick={() => {}} />
-            <MenuItem label="SignUp" onClick={() => {}} />
+            <MenuItem label="SignUp" onClick={registerModal.onOpen} />
           </div>
         </div>
       )}
