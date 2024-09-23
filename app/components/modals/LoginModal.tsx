@@ -17,6 +17,10 @@ const LoginModal = () => {
   const router = useRouter()
   const registerModal = useRegisterModal()
   const loginModal = useLoginModal()
+  const toggleModal = () => {
+    registerModal.onOpen()
+    loginModal.onClose()
+  }
   const [isLoading, setIsLoading] = useState(false)
   const {
     register,
@@ -95,12 +99,12 @@ const LoginModal = () => {
       "
       >
         <div className="flex justify-center items-center gap-2">
-          <div>Already have an account?</div>
+          <div>First time using Airbnb?</div>
           <div
-            onClick={registerModal.onClose}
+            onClick={toggleModal}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
-            login
+            Create an account
           </div>
         </div>
       </div>
