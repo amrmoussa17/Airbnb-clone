@@ -6,6 +6,7 @@ import Heading from "../Heading"
 import { categories } from "../navbar/Categories"
 import CategoryInput from "../inputs/CategoryInput"
 import { FieldValues, useForm } from "react-hook-form"
+import CountrySelect from "../inputs/CountrySelect"
 
 enum Steps {
   CATEGORY,
@@ -42,6 +43,7 @@ const RentModal = () => {
   })
 
   const category = watch("category")
+  const location = watch("location")
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -108,6 +110,10 @@ const RentModal = () => {
         <Heading
           title="Where is your place located?"
           subtitle="Help guests find you!"
+        />
+        <CountrySelect
+          onChange={(value) => setCustomValue("location", value)}
+          value={location}
         />
       </div>
     )
