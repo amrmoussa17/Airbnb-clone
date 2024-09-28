@@ -9,6 +9,7 @@ import { FieldValues, useForm } from "react-hook-form"
 import CountrySelect from "../inputs/CountrySelect"
 import dynamic from "next/dynamic"
 import Counter from "../Counter"
+import ImgUpload from "../ImgUpload"
 
 enum Steps {
   CATEGORY,
@@ -49,6 +50,7 @@ const RentModal = () => {
   const guestCount = watch("guestCount")
   const roomCount = watch("roomCount")
   const bathroomCount = watch("bathroomCount")
+  const imgSrc = watch("imgSrc")
 
   const Map = useMemo(
     () =>
@@ -159,6 +161,20 @@ const RentModal = () => {
           subtitle="How many bathrooms do you allow?"
           value={bathroomCount}
           onChange={(value) => setCustomValue("bathroomCount", value)}
+        />
+      </div>
+    )
+  }
+  if (step === Steps.IMAGES) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Add a photo of your place"
+          subtitle="Show guests what your place looks like!"
+        />
+        <ImgUpload
+          value={imgSrc}
+          onChange={(value) => setCustomValue("imgSrc", value)}
         />
       </div>
     )
