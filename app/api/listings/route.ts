@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   const {
     category,
     location,
-    imageSrc,
+    imgSrc,
     roomCount,
     bathroomCount,
     guestCount,
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     data: {
       category,
       locationValue: location.value,
-      imageSrc,
+      imageSrc: imgSrc,
       roomCount,
       bathroomCount,
       guestCount,
