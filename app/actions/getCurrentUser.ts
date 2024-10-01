@@ -21,7 +21,13 @@ export default async function getCurrentUser() {
     if (!currentUser) {
       return null
     }
-    return currentUser
+    const safeUser = {
+      ...currentUser,
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toISOString(),
+    }
+    return safeUser
   } catch (error) {
     return null
   }
