@@ -1,5 +1,5 @@
 "use client"
-import { SafeListing, SafeUser } from "@/app/types"
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types"
 import { categories } from "@/app/components/navbar/Categories"
 import Container from "@/app/components/Container"
 import ListingHead from "@/app/components/listings/ListingHead"
@@ -20,7 +20,7 @@ const initialDateRange = {
 }
 
 interface ListingClientProps {
-  reservations?: []
+  reservations?: SafeReservation[]
   listing: SafeListing & {
     user: SafeUser
   }
